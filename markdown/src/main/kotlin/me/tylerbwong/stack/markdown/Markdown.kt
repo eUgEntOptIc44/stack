@@ -25,6 +25,7 @@ class Markdown @Inject constructor(@MarkdownMarkwon private val markwon: Markwon
         "c++" to "cpp",
         "kt" to "kotlin",
         "py" to "python",
+        "js" to "javascript",
     )
 
     fun setMarkdown(textView: TextView, markdown: String) {

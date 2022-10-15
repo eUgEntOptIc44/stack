@@ -89,7 +89,7 @@ class MarkdownModule {
         prism4j: Prism4j,
         prism4jTheme: Prism4jThemeBase
     ): Set<AbstractMarkwonPlugin> = if (experimental.syntaxHighlightingEnabled) {
-        setOf(SyntaxHighlightPlugin.create(prism4j, prism4jTheme))
+        setOf(SyntaxHighlightPlugin.create(prism4j, providePrism4jTheme()))
     } else {
         emptySet()
     }

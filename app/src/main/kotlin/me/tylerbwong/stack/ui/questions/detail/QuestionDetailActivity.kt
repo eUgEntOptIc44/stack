@@ -9,7 +9,6 @@ import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import dev.chrisbanes.insetter.applyInsetter
 import me.tylerbwong.stack.R
-import me.tylerbwong.stack.data.reviewer.AppReviewer
 import me.tylerbwong.stack.databinding.ActivityQuestionDetailBinding
 import me.tylerbwong.stack.ui.BaseActivity
 import me.tylerbwong.stack.ui.utils.hideKeyboard
@@ -24,9 +23,6 @@ class QuestionDetailActivity : BaseActivity<ActivityQuestionDetailBinding>(
 ) {
     private val viewModel by viewModels<QuestionDetailMainViewModel>()
     private lateinit var adapter: QuestionDetailPagerAdapter
-
-    @Inject
-    lateinit var appReviewer: AppReviewer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,7 +77,6 @@ class QuestionDetailActivity : BaseActivity<ActivityQuestionDetailBinding>(
         val isInAnswerMode = savedInstanceState?.getBoolean(IS_IN_ANSWER_MODE, false)
             ?: intent.getBooleanExtra(IS_IN_ANSWER_MODE, false)
         toggleAnswerMode(isInAnswerMode = isInAnswerMode)
-        appReviewer.markReviewImpression()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
