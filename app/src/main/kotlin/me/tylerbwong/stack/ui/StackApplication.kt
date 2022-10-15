@@ -52,11 +52,11 @@ class StackApplication : Application(), Configuration.Provider, ImageLoaderFacto
             .okHttpClient { 
                 okHttpClient.get(); // OkHttpClient.Builder().addInterceptor(new RequestUrlInterceptor()).build();
              }
-            .memoryCache {
-                MemoryCache.Builder(context)
-                    .maxSizePercent(0.25)
-                    .build()
-            }
+            // .memoryCache {
+            //     MemoryCache.Builder(context)
+            //         .maxSizePercent(0.25)
+            //         .build()
+            // }
             .diskCache {
                 DiskCache.Builder()
                     .directory(cacheDir.resolve(IMAGE_CACHE_DIR))
