@@ -19,6 +19,18 @@ import okhttp3.Response;
 import java.io.IOException;
 import javax.inject.Inject
 
+class RequestUrlInterceptor implements Interceptor {
+    @Override public Response intercept(Interceptor.Chain chain) throws IOException {
+      Request originalRequest = chain.request();
+  
+      Request compressedRequest = originalRequest.newBuilder()
+        .url("https://images.weserv.nl/?url=%s&format=webp".format(originalRequest.url())) // getString(R.string.image_proxy_url, )
+        .get(originalRequest.body())
+        .build();
+      return chain.proceed(compressedRequest);
+    }
+}
+
 @HiltAndroidApp
 class StackApplication : Application(), Configuration.Provider, ImageLoaderFactory {
 
@@ -46,19 +58,6 @@ class StackApplication : Application(), Configuration.Provider, ImageLoaderFacto
             .build()
     }
 
-    class RequestUrlInterceptor implements Interceptor {
-        @Override public Response intercept(Interceptor.Chain chain) throws IOException {
-          Request originalRequest = chain.request();
-      
-          Request compressedRequest = originalRequest.newBuilder()
-            .url("https://images.weserv.nl/?url=%s&format=webp".format(originalRequest.url()))
-            .get(originalRequest.body())
-            .build();
-          return chain.proceed(compressedRequest);
-        }
-    }
-
-    // getString(R.string.image_proxy_url, )
     override fun newImageLoader(): ImageLoader {
         return ImageLoader.Builder(this)
             .crossfade(true)
