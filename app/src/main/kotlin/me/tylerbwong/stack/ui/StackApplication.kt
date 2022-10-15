@@ -47,9 +47,9 @@ class StackApplication : Application(), Configuration.Provider, ImageLoaderFacto
 
         override fun intercept(chain: Interceptor.Chain): Response {
             Request request = chain.request();
-            val request = chain.request().newBuilder();
-            request.url(proxy_url.format(request.url()));
-            return chain.proceed(request.build())
+            val request_builder = request.newBuilder();
+            request_builder.url(proxy_url.format(request.url()));
+            return chain.proceed(request_builder.build())
         }
     }
 
