@@ -63,7 +63,7 @@ class StackApplication : Application(), Configuration.Provider, ImageLoaderFacto
         return ImageLoader.Builder(this)
             .crossfade(true)
             .okHttpClient { 
-                OkHttpClient.Builder().addNetworkInterceptor(RequestUrlInterceptor()).build();
+                OkHttpClient.Builder().addInterceptor(new RequestUrlInterceptor()).build();
              }
             .memoryCache {
                 MemoryCache.Builder(context)
