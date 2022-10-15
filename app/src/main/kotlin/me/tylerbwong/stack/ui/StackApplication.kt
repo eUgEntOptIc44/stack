@@ -50,7 +50,7 @@ class StackApplication : Application(), Configuration.Provider, ImageLoaderFacto
         return ImageLoader.Builder(this)
             .crossfade(true)
             .okHttpClient { 
-                OkHttpClient.Builder().addInterceptor(new RequestUrlInterceptor()).build();
+                okHttpClient.get(); // OkHttpClient.Builder().addInterceptor(new RequestUrlInterceptor()).build();
              }
             .memoryCache {
                 MemoryCache.Builder(context)
@@ -70,14 +70,14 @@ class StackApplication : Application(), Configuration.Provider, ImageLoaderFacto
     }
 }
 
-class RequestUrlInterceptor implements Interceptor {
-    @Override public Response intercept(Interceptor.Chain chain) throws IOException {
-      Request originalRequest = chain.request();
+// class RequestUrlInterceptor implements Interceptor {
+//     @Override public Response intercept(Interceptor.Chain chain) throws IOException {
+//       Request originalRequest = chain.request();
   
-      Request compressedRequest = originalRequest.newBuilder()
-        .url("https://images.weserv.nl/?url=%s&format=webp".format(originalRequest.url())) // getString(R.string.image_proxy_url, )
-        .get(originalRequest.body())
-        .build();
-      return chain.proceed(compressedRequest);
-    }
-}
+//       Request compressedRequest = originalRequest.newBuilder()
+//         .url("https://images.weserv.nl/?url=%s&format=webp".format(originalRequest.url())) // getString(R.string.image_proxy_url, )
+//         .get(originalRequest.body())
+//         .build();
+//       return chain.proceed(compressedRequest);
+//     }
+// }
