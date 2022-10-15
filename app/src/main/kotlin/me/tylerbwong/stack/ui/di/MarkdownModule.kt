@@ -85,11 +85,12 @@ class MarkdownModule {
 
     @[Provides ElementsIntoSet ExperimentalMarkwonPlugin]
     fun provideSyntaxHighlightPlugin(
+        @ApplicationContext context: Context,
         experimental: Experimental,
         prism4j: Prism4j,
-        prism4jTheme: Prism4jThemeBase
+        prism4jTheme: Prism4jThemeBase,
     ): Set<AbstractMarkwonPlugin> = if (experimental.syntaxHighlightingEnabled) {
-        setOf(SyntaxHighlightPlugin.create(prism4j, providePrism4jTheme()))
+        setOf(SyntaxHighlightPlugin.create(prism4j, providePrism4jTheme(context)))
     } else {
         emptySet()
     }
