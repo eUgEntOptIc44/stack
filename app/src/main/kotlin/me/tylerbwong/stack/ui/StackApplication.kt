@@ -11,7 +11,12 @@ import dagger.Lazy
 import dagger.hilt.android.HiltAndroidApp
 import me.tylerbwong.stack.data.di.Initializer
 import me.tylerbwong.stack.ui.theme.ThemeManager
-import okhttp3.OkHttpClient
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import java.io.IOException;
 import javax.inject.Inject
 
 @HiltAndroidApp
@@ -41,14 +46,15 @@ class StackApplication : Application(), Configuration.Provider, ImageLoaderFacto
             .build()
     }
 
-    class RequestUrlInterceptor(
-        private val proxy_url: String
-    ) : Interceptor {
-
-        override fun intercept(chain: Interceptor.Chain): Response {
-            val request_builder = chain.request().newBuilder();
-            request_builder.url(proxy_url.format(chain.request().url()));
-            return chain.proceed(request_builder.build())
+    class RequestUrlInterceptor implements Interceptor {
+        @Override public Response intercept(Interceptor.Chain chain) throws IOException {
+          Request originalRequest = chain.request();
+      
+          Request compressedRequest = originalRequest.newBuilder()
+            .url("https://images.weserv.nl/?url=%s&format=webp".format(originalRequest.url()))
+            .get(originalRequest.body())
+            .build();
+          return chain.proceed(compressedRequest);
         }
     }
 
@@ -57,7 +63,7 @@ class StackApplication : Application(), Configuration.Provider, ImageLoaderFacto
         return ImageLoader.Builder(this)
             .crossfade(true)
             .okHttpClient { 
-                OkHttpClient.Builder().addNetworkInterceptor(RequestUrlInterceptor("https://images.weserv.nl/?url=%s&format=webp")).build();
+                OkHttpClient.Builder().addNetworkInterceptor(RequestUrlInterceptor()).build();
              }
             .memoryCache {
                 MemoryCache.Builder(context)
