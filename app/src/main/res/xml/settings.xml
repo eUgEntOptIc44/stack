@@ -30,6 +30,12 @@
             android:title="@string/syntax_highlighting" />
 
         <SwitchPreferenceCompat
+            android:icon="@drawable/ic_baseline_traffic"
+            android:key="@string/image_proxy"
+            android:summary="@string/image_proxy_summary"
+            android:title="@string/image_proxy" />
+
+        <SwitchPreferenceCompat
             android:icon="@drawable/ic_baseline_add_circle"
             android:key="@string/create_question"
             android:summary="@string/create_question_summary"

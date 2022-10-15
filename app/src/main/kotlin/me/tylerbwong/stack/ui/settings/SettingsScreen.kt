@@ -172,6 +172,20 @@ fun SettingsScreen(
                         )
                         SwitchPreference(
                             checked = false,
+                            title = { Text(text = stringResource(R.string.image_proxy)) },
+                            onCheckedChange = { isSnackbarVisible = true },
+                            summary = {
+                                Text(text = stringResource(R.string.image_proxy_summary))
+                            },
+                            icon = {
+                                Icon(
+                                    imageVector = Icons.Default.Traffic,
+                                    contentDescription = null,
+                                )
+                            },
+                        )
+                        SwitchPreference(
+                            checked = false,
                             title = { Text(text = stringResource(R.string.create_question)) },
                             onCheckedChange = { isSnackbarVisible = true },
                             summary = {

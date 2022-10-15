@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name" translatable="false">Stack</string>
     <string name="api_home_url" translatable="false">https://api.stackexchange.com/</string>
-    <string name="repository_url" translatable="false">https://github.com/tylerbwong/stack</string>
-    <string name="privacy_url" translatable="false">https://github.com/tylerbwong/stack/blob/master/PRIVACY.md</string>
-    <string name="terms_url" translatable="false">https://github.com/tylerbwong/stack/blob/master/TERMS.md</string>
+    <string name="repository_url" translatable="false">https://github.com/eUgEntOptIc44/stack</string>
+    <string name="privacy_url" translatable="false">https://github.com/eUgEntOptIc44/stack/blob/master/PRIVACY.md</string>
+    <string name="terms_url" translatable="false">https://github.com/eUgEntOptIc44/stack/blob/master/TERMS.md</string>
+    <string name="image_proxy_url" translatable="false">https://images.weserv.nl/?url=%s&amp;format=webp</string>
 
     <string name="search">Search</string>
     <string name="share">Share</string>
@@ -156,6 +157,8 @@
     <string name="version">Version</string>
     <string name="syntax_highlighting">Syntax highlighting</string>
     <string name="syntax_highlighting_summary">Enables syntax highlighting for supported markdown code blocks</string>
+    <string name="image_proxy">Image proxy</string>
+    <string name="image_proxy_summary">Use image.weserv.nl when fetching images</string>
     <string name="create_question_summary">Enables create question support</string>
 
     <string name="restart_toggle">Toggling this requires a restart</string>

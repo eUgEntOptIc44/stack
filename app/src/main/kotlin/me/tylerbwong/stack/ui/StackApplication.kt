@@ -41,10 +41,30 @@ class StackApplication : Application(), Configuration.Provider, ImageLoaderFacto
             .build()
     }
 
+    class RequestUrlInterceptor(
+        private val proxy_url: String
+    ) : Interceptor {
+
+        override fun intercept(chain: Interceptor.Chain): Response {
+            Request request = chain.request();
+            val request = chain.request().newBuilder();
+            request.url(proxy_url.format(request.url()));
+            return chain.proceed(request.build())
+        }
+    }
+
+    // getString(R.string.image_proxy_url, )
     override fun newImageLoader(): ImageLoader {
         return ImageLoader.Builder(this)
             .crossfade(true)
-            .okHttpClient { okHttpClient.get() }
+            .okHttpClient { 
+                OkHttpClient.Builder().addNetworkInterceptor(RequestUrlInterceptor("https://images.weserv.nl/?url=%s&format=webp")).build();
+             }
+            .memoryCache {
+                MemoryCache.Builder(context)
+                    .maxSizePercent(0.25)
+                    .build()
+            }
             .diskCache {
                 DiskCache.Builder()
                     .directory(cacheDir.resolve(IMAGE_CACHE_DIR))

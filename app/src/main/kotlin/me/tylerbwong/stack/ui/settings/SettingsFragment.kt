@@ -69,6 +69,16 @@ class SettingsFragment : PreferenceFragmentCompat() {
                     }
                 }
 
+                findPreference<TwoStatePreference>(getString(R.string.image_proxy))?.apply {
+                    isChecked = experimental.imageProxyEnabled
+                    isVisible = BuildConfig.DEBUG
+                    setOnPreferenceChangeListener { _, newValue ->
+                        experimental.imageProxyEnabled = newValue as Boolean
+                        view?.showRestartSnackbar()
+                        true
+                    }
+                }
+
                 findPreference<TwoStatePreference>(getString(R.string.create_question))?.apply {
                     isChecked = experimental.createQuestionEnabled
                     isVisible = false
