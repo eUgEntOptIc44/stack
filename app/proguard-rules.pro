@@ -13,7 +13,3 @@
 -keepclasseswithmembers class **.R$* {
     public static final int define_*;
 }
-
-# Crashlytics
--keepattributes SourceFile,LineNumberTable
--keep public class * extends java.lang.Exception

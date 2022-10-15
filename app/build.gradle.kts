@@ -4,8 +4,6 @@ plugins {
     `kotlin-kapt`
     alias(libs.plugins.google.ksp)
     id("dagger.hilt.android.plugin")
-    id("com.google.gms.google-services")
-    id("com.google.firebase.crashlytics")
     id("com.mikepenz.aboutlibraries.plugin")
     StackPlugin
 }
@@ -77,9 +75,6 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling)
 
     // google
-    playImplementation(platform(libs.google.firebase.bom))
-    playImplementation(libs.google.firebase.analytics.ktx)
-    playImplementation(libs.google.firebase.crashlytics)
     implementation(libs.google.material)
 
     // licenses
@@ -154,9 +149,4 @@ dependencies {
     androidTestImplementation(libs.barista)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.espresso.intents)
-}
-
-val googleServices = file("google-services.json")
-if (!googleServices.exists()) {
-    file("fake-google-services.json").copyTo(googleServices, overwrite = true)
 }

@@ -1,6 +1,5 @@
 package me.tylerbwong.stack.play.logging.di
 
-import com.google.firebase.crashlytics.FirebaseCrashlytics
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,9 +17,8 @@ class CrashlyticsModule {
 
     @[Provides Initializer IntoSet]
     fun provideCrashlyticsInitializer(crashlyticsTree: Provider<CrashlyticsTree>): () -> Unit = {
-        FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true)
         if (!BuildConfig.DEBUG) {
-            Timber.plant(crashlyticsTree.get())
+            Timber.plant(new Timber.DebugTree())
         }
     }
 }

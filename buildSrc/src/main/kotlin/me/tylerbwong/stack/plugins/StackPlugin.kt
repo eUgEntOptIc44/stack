@@ -68,19 +68,7 @@ class StackPlugin : Plugin<Project> {
                 }
             }
 
-            afterEvaluate {
-                applicationVariants.all {
-                    val formattedName = name.capitalize(Locale.getDefault())
-                    with(tasks) {
-                        listOfNotNull(
-                            findByName("process${formattedName}GoogleServices"),
-                            findByName("injectCrashlyticsMappingFileId$formattedName"),
-                            findByName("uploadCrashlyticsMappingFile$formattedName")
-                        ).forEach { it.enabled = flavorName == "play" }
-                    }
-                }
-            }
-
+            
             (sourceSets) {
                 "base" {
                     java {

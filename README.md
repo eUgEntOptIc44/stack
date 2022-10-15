@@ -1,15 +1,16 @@
 # Stack
-[![Build](https://github.com/tylerbwong/stack/actions/workflows/build.yml/badge.svg)](https://github.com/tylerbwong/stack/actions/workflows/build.yml)
+
+[![Build](https://github.com/eUgEntOptIc44/stack/actions/workflows/build.yml/badge.svg)](https://github.com/eUgEntOptIc44/stack/actions/workflows/build.yml)
 
 ![Stack](/.idea/icon.png)
 
 Stack is an Android application that lets you browse [stackoverflow.com](https://stackoverflow.com) and other Stack Exchange sites. It is powered by the [Stack Exchange API](https://api.stackexchange.com/).
 
-### Download
+## Download
 
-<a href="https://play.google.com/store/apps/details?id=me.tylerbwong.stack"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" height=80px /></a>
+see GitHub actions tab pane
 
-### Development
+## Development
 
 The goal of this project is to provide examples for the latest Android libraries and tools. A few noteworthy examples include:
 
@@ -19,7 +20,7 @@ The goal of this project is to provide examples for the latest Android libraries
 * [Room](https://developer.android.com/jetpack/androidx/releases/room) for local data persistence
 * [Markwon](https://github.com/noties/Markwon) for rendering markdown
 
-### Features
+## Features
 
 * View questions, answers, and comments with rich Markdown previews
 * Switch to any Stack Exchange site
@@ -30,7 +31,7 @@ The goal of this project is to provide examples for the latest Android libraries
 * Dark mode
 * Question deep linking
 
-### Subprojects
+## Subprojects
 
 Here you can also find a few useful Gradle modules as well:
 
@@ -40,9 +41,11 @@ Here you can also find a few useful Gradle modules as well:
 * [dynamic-list-adapter](./dynamic-list-adapter) - An abstraction around `RecyclerView` built on `ListAdapter` for asynchronous list diffing.
 * [dynamic-list-adapter-viewbinding](./dynamic-list-adapter-viewbinding) - View Binding support for `DynamicListAdapter`.
 
-# License
+## License
 
-    Copyright (C) 2022 Tyler Wong
+    Copyright (C) 2022 Jean-Luc Tibaux
+
+    Copyright (C) 2022 Tyler Wong (original author)
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

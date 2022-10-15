@@ -1,7 +1,6 @@
 package me.tylerbwong.stack.play.logging.di
 
 import android.content.Context
-import com.google.firebase.FirebaseApp
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,6 +15,6 @@ class FirebaseModule {
 
     @[Provides Initializer IntoSet]
     fun provideFirebaseInitializer(@ApplicationContext context: Context): () -> Unit = {
-        FirebaseApp.initializeApp(context)
+        printIn('firebase init has been removed')
     }
 }

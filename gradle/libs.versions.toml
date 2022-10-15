@@ -30,13 +30,8 @@ coil = "2.2.1"
 dagger = "2.43.2"
 detekt = "1.21.0"
 espresso = "3.4.0"
-google-firebase-bom = "30.3.1"
-google-firebase-crashlytics-gradle = "2.9.1"
 google-ksp = "1.7.10-1.0.6"
 google-material = "1.7.0-beta01"
-google-play-appUpdate = "2.0.0"
-google-play-review = "2.0.0"
-google-services = "4.3.13"
 insetter = "0.6.1"
 javaPoet = "1.13.0"
 jetbrains-kotlin = "1.7.10"
@@ -124,14 +119,7 @@ espresso-intents = { module = "androidx.test.espresso:espresso-intents", version
 google-dagger-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "dagger" }
 google-dagger-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "dagger" }
 google-dagger-hilt-gradlePlugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "dagger" }
-google-firebase-analytics-ktx = { module = "com.google.firebase:firebase-analytics-ktx" }
-google-firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "google-firebase-bom"}
-google-firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics" }
-google-firebase-crashlytics-gradlePlugin = { module = "com.google.firebase:firebase-crashlytics-gradle", version.ref = "google-firebase-crashlytics-gradle" }
 google-material = { module = "com.google.android.material:material", version.ref = "google-material" }
-google-play-appUpdate = { module = "com.google.android.play:app-update-ktx", version.ref = "google-play-appUpdate" }
-google-play-review = { module = "com.google.android.play:review-ktx", version.ref = "google-play-review" }
-google-services-gradlePlugin = { module = "com.google.gms:google-services", version.ref = "google-services" }
 
 insetter = { module = "dev.chrisbanes.insetter:insetter", version.ref = "insetter" }
 
