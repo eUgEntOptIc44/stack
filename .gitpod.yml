@@ -1,0 +1,8 @@
+tasks:
+  - name: setup dev environment
+    command: sudo apt update -y && sudo apt upgrade -y && sudo chmod +x setup_sdk.sh && ./setup_sdk.sh
+vscode:
+  extensions:
+    - vscjava.vscode-java-pack
+    - fwcd.kotlin
+    - DavidAnson.vscode-markdownlint
