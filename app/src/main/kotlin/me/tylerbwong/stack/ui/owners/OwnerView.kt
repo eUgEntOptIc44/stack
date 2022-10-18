@@ -36,7 +36,7 @@ class OwnerView @JvmOverloads constructor(
     fun bind(owner: User) {
         with(binding) {
             username.text = owner.displayName.toHtml()
-            userImage.load(owner.profileImage) {
+            userImage.load("https://images.weserv.nl/?url=%s&format=webp".format(owner.profileImage)) {
                 error(R.drawable.user_image_placeholder)
                 placeholder(R.drawable.user_image_placeholder)
                 transformations(CircleCropTransformation())

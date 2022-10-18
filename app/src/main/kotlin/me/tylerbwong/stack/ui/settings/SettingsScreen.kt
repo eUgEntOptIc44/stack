@@ -101,7 +101,7 @@ fun SettingsScreen(
                             icon = {
                                 AsyncImage(
                                     model = ImageRequest.Builder(context)
-                                        .data(it.profileImage)
+                                        .data("https://images.weserv.nl/?url=%s&format=webp".format(it.profileImage))
                                         .transformations(CircleCropTransformation())
                                         .size(
                                             context.resources.getDimensionPixelSize(

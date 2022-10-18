@@ -118,7 +118,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
                     title = user.displayName
                     summary = user.location
                     val request = ImageRequest.Builder(requireContext())
-                        .data(user.profileImage)
+                        .data("https://images.weserv.nl/?url=%s&format=webp".format(user.profileImage))
                         .transformations(CircleCropTransformation())
                         .size(resources.getDimensionPixelSize(R.dimen.user_image_placeholder_size))
                         .target { icon = it }
