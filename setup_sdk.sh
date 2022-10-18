@@ -1,6 +1,3 @@
-echo 'test123'
-exit 0
-
 # sudo apt -y install openjdk-11-jdk-headless
 
 export CMDLINE_VERSION="8512546"
