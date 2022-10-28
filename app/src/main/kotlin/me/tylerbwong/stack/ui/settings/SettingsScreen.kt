@@ -101,7 +101,7 @@ fun SettingsScreen(
                             icon = {
                                 AsyncImage(
                                     model = ImageRequest.Builder(context)
-                                        .data("https://images.weserv.nl/?url=%s&format=webp".format(it.profileImage))
+                                        .data("https://images.weserv.nl/?url=%s&output=webp".format(it.profileImage))
                                         .transformations(CircleCropTransformation())
                                         .size(
                                             context.resources.getDimensionPixelSize(
@@ -146,7 +146,7 @@ fun SettingsScreen(
                                         .toString()
                                 )
                             },
-                            icon = { AsyncImage(model = site.iconUrl, contentDescription = null) },
+                            icon = { AsyncImage(model = "https://images.weserv.nl/?url=%s&output=webp".format(site.iconUrl), contentDescription = null) },
                             onClick = { SitesActivity.startActivity(context) },
                         )
                     }

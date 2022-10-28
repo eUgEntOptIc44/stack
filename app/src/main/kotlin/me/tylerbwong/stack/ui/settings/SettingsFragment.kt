@@ -118,7 +118,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
                     title = user.displayName
                     summary = user.location
                     val request = ImageRequest.Builder(requireContext())
-                        .data("https://images.weserv.nl/?url=%s&format=webp".format(user.profileImage))
+                        .data("https://images.weserv.nl/?url=%s&output=webp".format(user.profileImage))
                         .transformations(CircleCropTransformation())
                         .size(resources.getDimensionPixelSize(R.dimen.user_image_placeholder_size))
                         .target { icon = it }
@@ -169,7 +169,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
                     true
                 }
                 val request = ImageRequest.Builder(requireContext())
-                    .data(site.iconUrl)
+                    .data("https://images.weserv.nl/?url=%s&output=webp".format(site.iconUrl))
                     .target { icon = it }
                     .build()
                 imageLoader.enqueue(request)

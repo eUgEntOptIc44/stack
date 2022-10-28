@@ -57,7 +57,7 @@ fun ProfileHeader(user: User) {
             } ?: Modifier
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data("https://images.weserv.nl/?url=%s&format=webp".format(user.profileImage))
+                    .data("https://images.weserv.nl/?url=%s&output=webp".format(user.profileImage))
                     .crossfade(true)
                     .error(R.drawable.user_image_placeholder)
                     .placeholder(R.drawable.user_image_placeholder)

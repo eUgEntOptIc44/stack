@@ -77,7 +77,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         viewModel.user.observe(this) { user ->
             binding.profileIcon.apply {
                 if (user != null) {
-                    load("https://images.weserv.nl/?url=%s&format=webp".format(user.profileImage)) {
+                    load("https://images.weserv.nl/?url=%s&output=webp".format(user.profileImage)) {
                         error(R.drawable.user_image_placeholder)
                         placeholder(R.drawable.user_image_placeholder)
                         transformations(CircleCropTransformation())

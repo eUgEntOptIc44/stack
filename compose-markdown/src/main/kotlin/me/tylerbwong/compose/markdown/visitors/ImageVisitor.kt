@@ -38,7 +38,7 @@ internal object ImageVisitor : Visitor {
                 )
             ) {
                 AsyncImage(
-                    model = imageUrl,
+                    model = "https://images.weserv.nl/?url=%s&output=webp".format(imageUrl),
                     contentDescription = null,
                     contentScale = ContentScale.FillWidth,
                 )

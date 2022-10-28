@@ -237,7 +237,7 @@ fun SiteItem(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         AsyncImage(
-            model = site.iconUrl,
+            model = "https://images.weserv.nl/?url=%s&output=webp".format(site.iconUrl),
             contentDescription = null,
             modifier = Modifier
                 .size(64.dp)
